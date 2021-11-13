@@ -4,10 +4,10 @@ import FormBuilder from 'antd-form-builder'
 
 const Option = Select.Option
 // Here define a custom component just for layout
-// For demo, it accept price string like "18.8 USD"
+// For demo, it accepts price string like "18.8 USD"
 const PriceInput = ({ value, onChange }) =>
-  value ? (
-    <Row gutter={10}>
+  value
+    ? <Row gutter={10}>
       <Col span={16}>
         <InputNumber
           style={{ width: '100%' }}
@@ -25,7 +25,7 @@ const PriceInput = ({ value, onChange }) =>
         </Select>
       </Col>
     </Row>
-  ) : null
+    : null
 // This widget is just a wrapper of Input to add a button
 const CaptchaInput = props => (
   <Row gutter={10}>
@@ -41,7 +41,7 @@ export default () => {
   const [form] = Form.useForm()
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
   const meta = [
     { key: 'product', label: 'Product' },
     {

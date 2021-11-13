@@ -5,7 +5,7 @@ import FormBuilder from 'antd-form-builder'
 export default () => {
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
 
   return (
     <Form layout="inline" onFinish={handleFinish}>

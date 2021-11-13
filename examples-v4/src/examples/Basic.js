@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Form, Button, Rate } from 'antd'
 import FormBuilder from 'antd-form-builder'
 
+require('react-dom')
+window.React2 = require('react')
+console.log(window.React1 === window.React2)
+
 export default class App extends Component {
   formRef = React.createRef()
   handleFinish = evt => {

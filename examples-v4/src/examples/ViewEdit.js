@@ -30,7 +30,7 @@ export default () => {
         content: 'Infomation updated.',
       })
     }, 1500)
-  })
+  }, [])
   const getMeta = () => {
     const meta = {
       columns: 2,

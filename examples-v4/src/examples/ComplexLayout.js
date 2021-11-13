@@ -6,7 +6,7 @@ export default () => {
   const [form] = Form.useForm()
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
   const meta = {
     columns: 4,
     formItemLayout: null, // Must set this for inline layout

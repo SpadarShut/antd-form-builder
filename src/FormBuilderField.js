@@ -28,6 +28,7 @@ const getValue = (obj, namePath) => {
 }
 
 const getWrappedComponentWithForwardRef = memoize(Comp =>
+  // eslint-disable-next-line react/display-name
   forwardRef((props, ref) => {
     return (
       <span ref={ref}>
@@ -40,17 +41,15 @@ const getWrappedComponentWithForwardRef = memoize(Comp =>
 function FormBuilderField(props) {
   const { field, meta, form } = props
 
-  const label = field.tooltip ? (
-    <span>
+  const label = field.tooltip
+    ? <span>
       {field.label}
       <Tooltip title={field.tooltip}>
         {' '}
         <QuestionIcon />
       </Tooltip>
     </span>
-  ) : (
-    field.label
-  )
+    : field.label
 
   let formItemLayout =
     field.formItemLayout || (field.label ? getValue(meta, 'formItemLayout') || [8, 16] : null)

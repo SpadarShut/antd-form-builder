@@ -12,7 +12,7 @@ export default () => {
   const [form] = Form.useForm()
   const handleSubmit = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
 
   const meta = [
     {

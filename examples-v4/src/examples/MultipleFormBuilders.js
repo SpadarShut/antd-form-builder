@@ -6,7 +6,7 @@ export default () => {
   const [form] = Form.useForm()
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
   const meta1 = [
     { key: 'name.first', label: 'First Name', required: true },
     { key: 'name.last', label: 'Last Name', required: true },

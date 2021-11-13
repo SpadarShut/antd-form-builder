@@ -7,7 +7,7 @@ export default () => {
   const [columns, setColumns] = useState(2)
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
   const meta = {
     columns,
     fields: [

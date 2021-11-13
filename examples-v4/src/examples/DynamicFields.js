@@ -7,7 +7,7 @@ export default () => {
   const forceUpdate = FormBuilder.useForceUpdate()
   const handleFinish = useCallback(values => {
     console.log('Submit: ', values)
-  })
+  }, [])
 
   const meta = [
     {

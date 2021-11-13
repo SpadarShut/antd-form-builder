@@ -10,6 +10,7 @@ const widgetMap = {}
 const Icon = () => '?'
 
 const getWrappedComponentWithForwardRef = _.memoize(Comp =>
+  // eslint-disable-next-line react/display-name
   forwardRef((props, ref) => {
     return (
       <span ref={ref}>
@@ -83,17 +84,15 @@ class FormBuilder extends Component {
     const meta = this.getMeta()
     field = convertMeta(field)
     // Handle form item props
-    const label = field.tooltip ? (
-      <span>
+    const label = field.tooltip
+      ? <span>
         {field.label}
         <Tooltip title={field.tooltip}>
           {' '}
           <Icon type="question-circle-o" />
         </Tooltip>
       </span>
-    ) : (
-      field.label
-    )
+      : field.label
 
     let formItemLayout =
       field.formItemLayout || (field.label ? _.get(meta, 'formItemLayout') || [8, 16] : null)

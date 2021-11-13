@@ -2,14 +2,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import isArray from 'lodash/isArray'
-import castArray from 'lodash/castArray'
 import find from 'lodash/find'
-import has from 'lodash/has'
-import { Col, Row, Form } from 'antd'
+import { Col, Row } from 'antd'
 import FormBuilderField from './FormBuilderField'
 import './FormBuilder.css'
 
-const isV4 = !!Form.useForm
+// const isV4 = !!Form.useForm
 
 const widgetMap = {}
 

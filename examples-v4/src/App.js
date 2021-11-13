@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from 'react'
 import { Select } from 'antd'
 import useHash from './useHash'
@@ -126,7 +127,7 @@ const examples = {
 }
 
 export default () => {
-  const current = useHash() || 'basic'
+  const current = useHash() || 'basic' // Object.keys(examples)[0]
 
   const renderExample = () => {
     const item = examples[current]
@@ -134,6 +135,9 @@ export default () => {
       return <span style={{ color: 'red' }}>Error: example "{current}" not found.</span>
     }
     const Comp = item.component
+
+    // debugger;
+
     return (
       <React.Fragment>
         <h1>
