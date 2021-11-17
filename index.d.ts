@@ -7,7 +7,8 @@ export = FormBuilder;
 export as namespace FormBuilder;
 
 declare const FormBuilder: React.FC<FormBuilderInterface> & {
-    defineWidget: (key: string, component: React.ReactComponentElement, metaConvertor?: (field: FieldType) => FieldType) => void
+    defineWidget: (key: string, component: React.ReactComponentElement, metaConvertor?: (field: FieldType) => FieldType) => void;
+    useForceUpdate: () => (() => void);
 }
 
 export declare type FormItemLayoutType = {
@@ -167,11 +168,23 @@ export declare type Meta = {
     gutter?: number;
 }
 
-export interface FormBuilderInterface {
-    meta: Meta | FieldType | FieldType[];
+interface FormBuilderBase {
     form: FormInstance<any>;
     viewMode?: boolean;
     initialValues?: any;
     disabled?: boolean;
 }
 
+export type MetaProp = Meta | FieldType | FieldType[];
+
+interface FormBuilderMeta extends FormBuilderBase {
+    meta: MetaProp;
+    getMeta?: never;
+}
+
+interface FormBuilderGetMeta extends FormBuilderBase {
+    meta?: never;
+    getMeta: (form: FormInstance<any>, props: FormBuilderGetMeta) => MetaProp;
+}
+
+export type FormBuilderInterface = FormBuilderMeta | FormBuilderGetMeta;
